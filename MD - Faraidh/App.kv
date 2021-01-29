@@ -1,0 +1,462 @@
+#: import MDFlatButton kivymd.uix.button.MDFlatButton
+#: import MDTextField kivymd.uix.textfield.MDTextField
+#: import MDTextFieldRect kivymd.uix.textfield.MDTextFieldRect
+
+ScreenManager:
+    HomeScreen:
+    MenuScreen:
+    DeskripsiScreen:
+    CalculateScreen:
+    ResultScreen:
+
+
+<HomeScreen>:
+    name:'home'
+    Image:
+        source: "Assets//unggul.png"
+        pos_hint:{'center_x':.82,'center_y':.94}
+        size_hint: .26,.26
+
+    Image:
+        source: "Assets//selamatdatang.png"
+        pos_hint:{'center_x':.4,'center_y':.8}
+        size_hint: .5,.5
+  
+    Image:
+        source: "Assets//mainbuttom.png"
+        pos_hint:{'center_x':.5,'center_y':.28}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+
+    ImageButton:
+        on_press: root.manager.current = 'menu'
+        pos_hint:{'center_x':.8,'center_y':.15}
+        size_hint:.3,.3
+        source: "Assets//mulai.png"
+            
+<MenuScreen>:
+    name:'menu'
+  
+    Image:
+        source: "Assets//topmenu.png"
+        pos_hint:{'center_x':.5,'center_y':.95}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+    
+    Image:
+        source: "Assets//menubuttom.png"
+        pos_hint:{'center_x':.5,'center_y':.24}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+        
+    ImageButton:
+        source: "Assets//menudeksripsi.png"
+        on_press: 
+            root.manager.current = 'deskripsi'
+            root.manager.transition.direction = 'left'
+        size_hint: .45,.22
+        pos_hint:{'center_x':.5,'center_y':.37}
+
+    ImageButton:
+        source: "Assets//menuhitung.png"
+        size_hint: .45,.22
+        on_press: 
+            root.manager.current = 'calculate'
+            root.manager.transition.direction = 'left'
+        pos_hint:{'center_x':.5,'center_y':.65}
+
+    Image:
+        source: "Assets//textmenu.png"
+        pos_hint:{'center_x':.5,'center_y':.83}
+        size_hint: .5,.5
+    
+
+<DeskripsiScreen>:
+    name:'deskripsi'
+
+    Image:
+        source: "Assets//topmenu.png"
+        pos_hint:{'center_x':.5,'center_y':.99}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+    Image:
+        source: "Assets//textdeskripsi.png"
+        pos_hint:{'center_x':.5,'center_y':.5}
+    
+    ImageButton:
+        source: "Assets//backmenu.png"
+        size_hint: .4, .3
+        on_release: 
+            root.manager.current = 'menu'
+            root.manager.transition.direction = 'right'
+        pos_hint:{'center_x':.7,'center_y':.17}
+    
+        
+<CalculateScreen>:
+    name: 'calculate'
+    
+    Image:
+        source: "Assets//topmenu.png"
+        pos_hint:{'center_x':.5,'center_y':.95}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+
+    Image:
+        source: "Assets//textperhitungan.png"
+        pos_hint:{'center_x':.5,'center_y':.95}
+        size_hint: .5, .5
+
+        
+    Image:
+        source: "Assets//labelnominal.png"
+        pos_hint:{'center_x':.5,'center_y':.78}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+        
+    
+   
+    MDTextField:
+        id: data
+        helper_text: "Masukkan Hanya Angka Tanpa Titik"
+        helper_text_mode: "on_focus"
+        color_mode: 'custom'
+        
+        pos_hint:{'center_x':.52,'center_y':.782}
+        size_hint_x:None
+        width:250
+        line_color_focus:'#73A270'
+        normal_color: '#73A270'
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        text_color: '#707070'
+        font_size: 18
+        font_name: 'Assets//Product.ttf'
+        
+
+    Image:
+        source: "Assets//menubuttom.png"
+        pos_hint:{'center_x':.5,'center_y':.24}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+    
+    Image:
+        source: "Assets//keluarga.png"
+        pos_hint:{'center_x':.5,'center_y':.44}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+
+    MDTextFieldRect:
+        id: anaklakilaki
+        halign: 'center'
+        max_text_length: 1
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.43,'center_y':.61}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: ayah
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.43,'center_y':.55}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: suami
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.43,'center_y':.49}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: sla
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.43,'center_y':.42}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: sli
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.43,'center_y':.36}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: anakperempuan
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.837,'center_y':.61}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: ibu
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.837,'center_y':.55}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: istri
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.837,'center_y':.49}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: spa
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.837,'center_y':.42}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+    
+    MDTextFieldRect:
+        id: spi
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.837,'center_y':.36}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+
+    MDTextFieldRect:
+        id: cucu
+        halign: 'center'
+        height: 24
+        width: 24
+        size_hint_x: None
+        size_hint_y: None
+        multiline: False
+        pos_hint: {'center_x':.43,'center_y':.302}
+        line_color_normal: '#73A270'
+        cursor_color: '#ffffff'
+        font_size: 10
+        font_name: 'Assets//Product.ttf'
+
+
+    ImageButton:
+        source: "Assets//buttonresult.png"
+        size_hint_y: .05
+        size_hint_x: .7
+        on_release: 
+            root.manager.current = 'result'
+            root.manager.screens[4].ids.show_harta.text = root.ids.data.text
+            jumlahharta = root.manager.screens[4].ids.show_harta.text #variabel harta
+            app.opsi(jumlahharta, anaklakilaki.text, anakperempuan.text, ayah.text, ibu.text, suami.text, istri.text, cucu.text, sla.text, sli.text, spa.text, spi.text)
+            root.tampilkan()
+            
+        pos_hint:{'center_x':.5,'center_y':.212}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+        
+    
+    ImageButton:
+        source: "Assets//back3.png"
+        size_hint_x: .3
+        size_hint_y: .05
+        on_release: 
+            root.manager.current = 'menu'
+            root.manager.transition.direction = 'right'
+            
+        pos_hint:{'center_x':.79,'center_y':.15}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+    
+  
+<ResultScreen>:
+    name: 'result'
+
+    Image:
+        source: "Assets//topmenu.png"
+        pos_hint:{'center_x':.5,'center_y':.95}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+
+    Image:
+        source: "Assets//textperhitungan.png"
+        pos_hint:{'center_x':.5,'center_y':.95}
+        size_hint: .5, .5
+
+        
+    Image:
+        source: "Assets//labelnominal.png"
+        pos_hint:{'center_x':.5,'center_y':.78}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+        
+    
+    Image:
+        source: "Assets//harta.png"
+        pos_hint:{'center_x':.545,'center_y':.78}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+        
+
+    Image:
+        source: "Assets//menubuttom.png"
+        pos_hint:{'center_x':.5,'center_y':.24}
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: None
+        size_hint_x: None
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+    
+    Image:
+        source: "Assets//result1.png"
+        pos_hint:{'center_x':.5,'center_y':.42}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+        
+    
+
+        
+    
+    Label:
+        id: show_harta
+        text: "...."
+        color: '#73A270'
+        font_size: '14sp'
+        pos_hint:{'center_x':.5,'center_y':.78}
+        font_name: 'Assets//opensans.ttf'
+    Label:
+        text: "Hasil Pembagian"
+        color: '#73A270'
+        font_size: '14sp'
+        pos_hint:{'center_x':.5,'center_y':.67}
+        font_name: 'Assets//opensans.ttf'
+
+    Label:
+        id: hasil
+        text: " "
+        color: '#73A270'
+        font_size: '11sp'
+        pos_hint:{'center_x':.5,'center_y':.57}
+        font_name: 'Assets//opensans.ttf'
+
+
+    ImageButton:
+        source: "Assets//back3.png"
+        size_hint_x: .3
+        size_hint_y: .05
+        on_release: 
+            root.manager.current = 'calculate'
+            root.manager.transition.direction = 'right'
+            root.hapuslist()
+        pos_hint:{'center_x':.77,'center_y':.11}
+        keep_ratio: True
+        width: self.parent.width
+        height: self.parent.width/self.image_ratio
+    
+    
+        
+        
+    
+        
+    
+
+        
+    
+
