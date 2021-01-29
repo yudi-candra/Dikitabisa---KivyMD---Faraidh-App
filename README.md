@@ -1,3 +1,3 @@
 # Dikitabisa---KivyMD---Faraidh-App
 
-@copyrigthdikitabisa2021
+@copyrightdikitabisa2021
